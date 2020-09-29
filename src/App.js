@@ -39,7 +39,7 @@ function App() {
           path="/edit"
           render={(props) => (
             <React.Fragment>
-              <MemeEdit />
+              <MemeEdit memes={memes} />
             </React.Fragment>
           )}
         />

@@ -1,15 +1,22 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
 function MemeItem(props) {
+    let editLink = `/edit/${props.meme.id}`;
+
     return (
-        <div key={props.meme.id} style={cardStyle}>
+        <Link to={editLink} style={linkStyle}><div key={props.meme.id} style={cardStyle}>
             <p>{props.meme.name}</p>
             <img src={props.meme.url} alt="meme" style={imageStyle}/>
-        </div>
+        </div></Link>
     )
 }
 
 export default MemeItem
+
+const linkStyle = {
+    textDecoration: "none"
+}
 
 const cardStyle = {
     background: "#faf87d",
