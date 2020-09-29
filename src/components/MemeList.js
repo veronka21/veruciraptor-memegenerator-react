@@ -1,11 +1,13 @@
 import React from "react";
+import MemeItem from "./MemeItem";
 
-function MemeList() {
-  return (
+function MemeList(props) {
+  return props.memes.map((meme) => (
     <div>
-      <p>Meme list</p>
+      <MemeItem meme={meme} />
     </div>
-  );
+  ));
+
 }
 
 export default MemeList;
