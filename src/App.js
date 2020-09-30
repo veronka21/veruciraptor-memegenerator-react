@@ -6,6 +6,7 @@ import MemeEdit from "./components/MemeEdit";
 import MemeList from "./components/MemeList";
 import axios from "axios";
 import Background from "./img/bg3.png";
+import MemeGenerated from "./components/MemeGenerated";
 
 function App() {
   const [memes, setMemes] = useState([]);
@@ -43,6 +44,9 @@ function App() {
             </React.Fragment>
           )}
         />
+        <Route path="/generated">
+          <MemeGenerated />
+        </Route>
       </div>
     </Router>
   );
