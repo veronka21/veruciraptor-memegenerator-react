@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -26,7 +26,7 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -107,6 +107,7 @@ input {
   font-size: 20px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.08);
   transition: all 0.5s;
+  margin-top: 20px;
 }
 
 input:hover:not(:focus){
@@ -128,4 +129,5 @@ input:focus {
   box-shadow: 0px 0px 10px black;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
 }

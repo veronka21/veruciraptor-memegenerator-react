@@ -35,18 +35,19 @@ function App() {
               />
             </div>
           </div>
+
+          <Route
+            path="/edit"
+            render={(props) => (
+              <React.Fragment>
+                <MemeEdit memes={memes} />
+              </React.Fragment>
+            )}
+          />
+          <Route path="/generated">
+            <MemeGenerated />
+          </Route>
         </div>
-        <Route
-          path="/edit"
-          render={(props) => (
-            <React.Fragment>
-              <MemeEdit memes={memes} />
-            </React.Fragment>
-          )}
-        />
-        <Route path="/generated">
-          <MemeGenerated />
-        </Route>
       </div>
     </Router>
   );
@@ -57,7 +58,7 @@ export default App;
 const siteBackgroundStyle = {
   // background: `url(${Background}) no-repeat center center fixed`,
   // backgroundSize: 'contain'
-}
+};
 
 const cardArea = {
   width: "60%",
