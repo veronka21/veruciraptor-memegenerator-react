@@ -16,22 +16,34 @@ function MemeGenerated() {
   };
 
   const downloadImage = () => {
-    let fileSaver = require('file-saver');
-    fileSaver.saveAs(url, "image.jpg"); 
-  }
+    let fileSaver = require("file-saver");
+    fileSaver.saveAs(url, "image.jpg");
+  };
 
   return (
-    <div>
-      {url && <img src={url} alt="generated meme" />}
+    <React.Fragment>
+      <div style={container}>
+        {url && <img src={url} alt="generated meme" className="meme-display" />}
+      </div>
       <p>
-        <button onClick={copyLink} className="glow-on-hover">{copied ? "Link copied!" : "Copy image link"}</button>
-        <button onClick={downloadImage} className="glow-on-hover">Download meme</button>
+        <button onClick={copyLink} className="glow-on-hover">
+          {copied ? "Link copied!" : "Copy image link"}
+        </button>
+        <button onClick={downloadImage} className="glow-on-hover">
+          Download meme
+        </button>
         <button onClick={() => history.push("/")} className="glow-on-hover">
           Make another meme
         </button>
       </p>
-    </div>
+    </React.Fragment>
   );
 }
 
 export default MemeGenerated;
+
+const container = {
+  margin: "auto",
+  width: "30%",
+  display: "block",
+};

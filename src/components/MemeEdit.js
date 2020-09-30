@@ -20,7 +20,7 @@ function MemeEdit(props) {
     .map((meme) => (
       <div style={editorContainer}>
         <div>
-          <img src={meme.url} alt={meme.name} style={imageStyle} />
+          <img src={meme.url} alt={meme.name} className="meme-display" />
         </div>
         <Textboxes meme={meme} />
       </div>
@@ -37,10 +37,3 @@ const editorContainer = {
   justifyContent: "space-evenly"
 }
 
-const imageStyle = {
-  display: "block",
-  maxHeight: "65vh",
-  maxWidth: "100%",
-  height: "auto",
-  boxShadow: "0px 0px 10px black"
-};
