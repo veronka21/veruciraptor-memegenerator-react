@@ -34,6 +34,6 @@ const editorContainer = {
   margin: "auto",
   width: "60%",
   display: "flex",
-  felxWrap: "wrap",
+  flexWrap: "wrap",
   justifyContent: "space-evenly",
 };
