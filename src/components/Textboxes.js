@@ -52,13 +52,13 @@ function Textbox({ meme }) {
       method: "POST",
       body: formData,
     }).then((response) => {
-      if (response.status !== 200) {
-        response.json().then((response) => {
+      response.json().then((response) => {
+        if (response.success === true) {
           history.push(`/generated?url=${response.data.url}`);
-        });
-      } else {
-        history.push("/error");
-      }
+        } else {
+          history.push("/error");
+        }
+      });
     });
   };
 
