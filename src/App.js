@@ -21,8 +21,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div className="siteBackground">
-          
+        <div>
           <div style={cardArea}>
             <div style={cardContainer}>
               <Route
@@ -67,4 +66,3 @@ const cardContainer = {
   justifyContent: "space-evenly",
   alignItems: "center",
 };
-

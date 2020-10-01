@@ -1,59 +1,69 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
-function Textbox({meme}) {
+function Textbox({ meme }) {
+  const [captions, setCaptions] = useState([]);
 
-    const [captions, setCaptions] = useState([]);
+  const history = useHistory();
 
-    const history = useHistory();
+  useEffect(() => setCaptions(Array(meme.box_count).fill("")), [
+    meme.box_count,
+  ]);
 
-    useEffect(() => (
-        setCaptions(Array(meme.box_count).fill(""))
-    ), [meme.box_count])
+  const updateCaption = (event, index) => {
+    let text = event.target.value || "";
+    setCaptions(
+      captions.map((c, i) => {
+        if (i === index) {
+          return text;
+        } else {
+          return c;
+        }
+      })
+    );
+  };
 
-    const updateCaption = (event, index) => {
-        let text = event.target.value || "";
-        setCaptions(
-            captions.map((c, i) => {
-                if(i === index) {
-                    return text
-                } else {
-                    return c
-                }
-            }))
-    }
+  let boxes = [];
 
-    let boxes = [];
+  for (let i = 0; i < meme.box_count; i++) {
+    boxes.push(
+      <p>
+        <input
+          key={i}
+          type="text"
+          onChange={(event) => updateCaption(event, i)}
+        />
+      </p>
+    );
+  }
 
-    for (let i = 0; i < meme.box_count; i++) {
-        boxes.push(<p><input key={i} type="text" onChange={(event) => updateCaption(event, i)}/></p>);
-    }
+  const generateMeme = () => {
+    const formData = new FormData();
+    let username = process.env.REACT_APP_IMGFLIP_USERNAME;
+    let password = process.env.REACT_APP_IMGFLIP_PASSWORD;
+    formData.append("username", username);
+    formData.append("password", password);
+    formData.append("template_id", meme.id);
+    captions.forEach((c, i) => {
+      formData.append(`boxes[${i}][text]`, c);
+    });
+    fetch("https://api.imgflip.com/caption_image", {
+      method: "POST",
+      body: formData,
+    }).then((response) =>
+      response.json().then((response) => {
+        history.push(`/generated?url=${response.data.url}`);
+      })
+    );
+  };
 
-    const generateMeme = () => {
-        const formData = new FormData();
-        let username = process.env.REACT_APP_IMGFLIP_USERNAME;
-        let password = process.env.REACT_APP_IMGFLIP_PASSWORD;
-        formData.append('username', username);
-        formData.append('password', password);
-        formData.append('template_id', meme.id);
-        captions.forEach((c, i) => {
-            formData.append(`boxes[${i}][text]`, c)
-        })
-        fetch("https://api.imgflip.com/caption_image", {
-            method: 'POST',
-            body: formData
-        }).then(response => response.json().then(response => {
-            history.push(`/generated?url=${response.data.url}`)
-        }))
-    }
+  boxes.push(
+    <button className="glow-on-hover" onClick={generateMeme}>
+      Generate meme!
+    </button>
+  );
 
-    boxes.push(<button className="glow-on-hover" onClick={generateMeme}>Generate meme!</button>);
-
-    return (
-        <div>
-            {boxes}
-        </div>
-    )
+  return <div>{boxes}</div>;
 }
 
-export default Textbox
+export default Textbox;

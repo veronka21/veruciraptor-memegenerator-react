@@ -7,7 +7,6 @@ function MemeList(props) {
       <MemeItem meme={meme} />
     </div>
   ));
-
 }
 
 export default MemeList;

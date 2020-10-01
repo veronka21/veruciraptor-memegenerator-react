@@ -23,7 +23,6 @@ function MemeGenerated() {
 
   return (
     <React.Fragment>
-      <div className="siteBackground">
       <img src={Chloe3} alt="chloe3" className="chloe" />
       <div style={container}>
         {url && <img src={url} alt="generated meme" className="meme-display" />}
@@ -39,7 +38,6 @@ function MemeGenerated() {
           Make another meme
         </button>
       </p>
-      </div>
     </React.Fragment>
   );
 }
