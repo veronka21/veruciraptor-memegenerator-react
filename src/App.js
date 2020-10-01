@@ -7,6 +7,7 @@ import MemeList from "./components/MemeList";
 import axios from "axios";
 import MemeGenerated from "./components/MemeGenerated";
 import Chloe from "./img/chloe1.jpg";
+import ErrorTravolta from "./components/ErrorTravolta";
 
 function App() {
   const [memes, setMemes] = useState([]);
@@ -47,6 +48,9 @@ function App() {
         />
         <Route path="/generated">
           <MemeGenerated />
+        </Route>
+        <Route path="/error">
+          <ErrorTravolta />
         </Route>
       </div>
     </Router>

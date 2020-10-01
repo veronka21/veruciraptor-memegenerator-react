@@ -47,14 +47,19 @@ function Textbox({ meme }) {
     captions.forEach((c, i) => {
       formData.append(`boxes[${i}][text]`, c);
     });
+
     fetch("https://api.imgflip.com/caption_image", {
       method: "POST",
       body: formData,
-    }).then((response) =>
-      response.json().then((response) => {
-        history.push(`/generated?url=${response.data.url}`);
-      })
-    );
+    }).then((response) => {
+      if (response.status !== 200) {
+        response.json().then((response) => {
+          history.push(`/generated?url=${response.data.url}`);
+        });
+      } else {
+        history.push("/error");
+      }
+    });
   };
 
   boxes.push(
