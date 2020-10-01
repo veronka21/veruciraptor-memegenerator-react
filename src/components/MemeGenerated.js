@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useClipboard } from "use-clipboard-copy";
+import Chloe3 from "../img/chloe3.jpg";
 
 function MemeGenerated() {
   const clipboard = useClipboard();
@@ -22,6 +23,8 @@ function MemeGenerated() {
 
   return (
     <React.Fragment>
+      <div className="siteBackground">
+      <img src={Chloe3} alt="chloe3" className="chloe" />
       <div style={container}>
         {url && <img src={url} alt="generated meme" className="meme-display" />}
       </div>
@@ -36,6 +39,7 @@ function MemeGenerated() {
           Make another meme
         </button>
       </p>
+      </div>
     </React.Fragment>
   );
 }

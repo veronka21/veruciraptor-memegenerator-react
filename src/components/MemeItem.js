@@ -19,14 +19,16 @@ const linkStyle = {
 }
 
 const cardStyle = {
-    background: "#faf87d",
-    border: "4px ridge #3d7dca",
+    background: "#eafafb",
+    boxShadow: "0px 0px 10px rgb(170, 90, 193)",
+    border: "4px ridge 	#53cdd2",
     padding: "30 px",
     borderRadius: "15%",
     height: "200px",
     width: "200px",
     display: "block",
-    margin: "40px"
+    margin: "40px",
+    color: "rgb(170, 90, 193)"
 }
 
 const imageStyle = {

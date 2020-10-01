@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Textboxes from './Textboxes';
+import Chloe2 from '../img/chloe2.jpg'
 
 
 function MemeEdit(props) {
@@ -18,7 +19,8 @@ function MemeEdit(props) {
   return memes
     .filter((meme) => meme.id === id)
     .map((meme) => (
-      <div style={editorContainer}>
+      <div style={editorContainer} >
+        <img src={Chloe2} alt="chloe2" className="chloe" />
         <div>
           <img src={meme.url} alt={meme.name} className="meme-display" />
         </div>
@@ -36,4 +38,3 @@ const editorContainer = {
   felxWrap: "wrap",
   justifyContent: "space-evenly"
 }
-
