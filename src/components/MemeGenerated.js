@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useClipboard } from "use-clipboard-copy";
+import Chloe3 from "../img/chloe3.jpg";
 
 function MemeGenerated() {
   const clipboard = useClipboard();
@@ -16,22 +17,35 @@ function MemeGenerated() {
   };
 
   const downloadImage = () => {
-    let fileSaver = require('file-saver');
-    fileSaver.saveAs(url, "image.jpg"); 
-  }
+    let fileSaver = require("file-saver");
+    fileSaver.saveAs(url, "image.jpg");
+  };
 
   return (
-    <div>
-      {url && <img src={url} alt="generated meme" />}
+    <React.Fragment>
+      <img src={Chloe3} alt="chloe3" className="chloe" />
+      <div style={container}>
+        {url && <img src={url} alt="generated meme" className="meme-display" />}
+      </div>
       <p>
-        <button onClick={copyLink} className="glow-on-hover">{copied ? "Link copied!" : "Copy image link"}</button>
-        <button onClick={downloadImage} className="glow-on-hover">Download meme</button>
+        <button onClick={copyLink} className="glow-on-hover">
+          {copied ? "Link copied!" : "Copy image link"}
+        </button>
+        <button onClick={downloadImage} className="glow-on-hover">
+          Download meme
+        </button>
         <button onClick={() => history.push("/")} className="glow-on-hover">
           Make another meme
         </button>
       </p>
-    </div>
+    </React.Fragment>
   );
 }
 
 export default MemeGenerated;
+
+const container = {
+  margin: "auto",
+  width: "30%",
+  display: "block",
+};

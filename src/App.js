@@ -5,8 +5,8 @@ import Header from "./components/Header";
 import MemeEdit from "./components/MemeEdit";
 import MemeList from "./components/MemeList";
 import axios from "axios";
-import Background from "./img/bg3.png";
 import MemeGenerated from "./components/MemeGenerated";
+import Chloe from "./img/chloe1.jpg";
 
 function App() {
   const [memes, setMemes] = useState([]);
@@ -21,7 +21,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div style={siteBackgroundStyle}>
+        <div>
           <div style={cardArea}>
             <div style={cardContainer}>
               <Route
@@ -29,6 +29,7 @@ function App() {
                 path="/"
                 render={(props) => (
                   <React.Fragment>
+                    <img src={Chloe} alt="Chloe" className="chloe" />
                     <MemeList memes={memes} />
                   </React.Fragment>
                 )}
@@ -39,9 +40,9 @@ function App() {
         <Route
           path="/edit"
           render={(props) => (
-            <React.Fragment>
+            <div className="siteBackground">
               <MemeEdit memes={memes} />
-            </React.Fragment>
+            </div>
           )}
         />
         <Route path="/generated">
@@ -53,11 +54,6 @@ function App() {
 }
 
 export default App;
-
-const siteBackgroundStyle = {
-  // background: `url(${Background}) no-repeat center center fixed`,
-  // backgroundSize: 'contain'
-}
 
 const cardArea = {
   width: "60%",

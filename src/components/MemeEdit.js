@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Textboxes from './Textboxes';
-
+import Textboxes from "./Textboxes";
+import Chloe2 from "../img/chloe2.jpg";
 
 function MemeEdit(props) {
   const [memes, setMemes] = useState([]);
@@ -19,8 +19,9 @@ function MemeEdit(props) {
     .filter((meme) => meme.id === id)
     .map((meme) => (
       <div style={editorContainer}>
+        <img src={Chloe2} alt="chloe2" className="chloe" />
         <div>
-          <img src={meme.url} alt={meme.name} style={imageStyle} />
+          <img src={meme.url} alt={meme.name} className="meme-display" />
         </div>
         <Textboxes meme={meme} />
       </div>
@@ -34,13 +35,5 @@ const editorContainer = {
   width: "60%",
   display: "flex",
   felxWrap: "wrap",
-  justifyContent: "space-evenly"
-}
-
-const imageStyle = {
-  display: "block",
-  maxHeight: "65vh",
-  maxWidth: "100%",
-  height: "auto",
-  boxShadow: "0px 0px 10px black"
+  justifyContent: "space-evenly",
 };
