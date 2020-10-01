@@ -1,0 +1,4 @@
+[build]
+base = "/home/veronka/projects/veruciraptor-memegenerator-react"
+publish = "/home/veronka/projects/veruciraptor-memegenerator-react/build/"
+command = "npm run build"
