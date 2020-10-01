@@ -18,7 +18,7 @@ function MemeEdit(props) {
   return memes
     .filter((meme) => meme.id === id)
     .map((meme) => (
-      <div style={editorContainer}>
+      <div style={editorContainer} className="memeEditorDiv">
         <img src={Chloe2} alt="chloe2" className="chloe" />
         <div>
           <img src={meme.url} alt={meme.name} className="meme-display" />
