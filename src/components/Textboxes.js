@@ -39,8 +39,10 @@ function Textbox({ meme }) {
 
   const generateMeme = () => {
     const formData = new FormData();
-    let username = process.env.REACT_APP_IMGFLIP_USERNAME;
-    let password = process.env.REACT_APP_IMGFLIP_PASSWORD;
+    // let username = process.env.REACT_APP_IMGFLIP_USERNAME;
+    // let password = process.env.REACT_APP_IMGFLIP_PASSWORD;
+    let username = "VeronikaTakcs";
+    let password = "barbrady";
     formData.append("username", username);
     formData.append("password", password);
     formData.append("template_id", meme.id);
