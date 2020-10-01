@@ -165,4 +165,8 @@ input:focus {
   .memeEditorDiv {
     display: block;
   }
+
+  .chloe {
+    height: 80px;
+  }
 }
