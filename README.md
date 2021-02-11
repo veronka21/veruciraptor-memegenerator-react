@@ -35,3 +35,8 @@ You can preview the final result, and save it or copy the image link, and also g
 Some advanced error handling:
 
 ![meme4-screenshot](https://user-images.githubusercontent.com/59374683/107620396-e7fb7080-6c54-11eb-80a2-dfed5957f302.jpg)
+
+## Deploy information
+
+You can check out the webpage without downloading anything, it was deployed using Netlify, and can be found at the following url:
+https://veruciraptor-memegenerator.netlify.app/
